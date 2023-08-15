@@ -30,17 +30,17 @@ function markerSize(magnitude) {
   return radius;
 }
 
-function markerColor(depth) {
+function markerColor(magnitude) {
   let color = "#780000";
-  if (depth >= 90) {
+  if (magnitude <= 10) {
     color = "#00f965";
-  } else if (depth >= 70) {
+  } else if (magnitude <= 30) {
     color = "#00ac46";
-  } else if (depth >= 50) {
+  } else if (magnitude <= 50) {
     color = "#fdc500";
-  } else if (depth >= 30) {
+  } else if (magnitude <= 70) {
     color = "#fd8c00";
-  } else if (depth >= 10) {
+  } else if (magnitude <= 90) {
     color = "#dc0000";
   } else {
     color = "#780000";
@@ -136,12 +136,12 @@ function createMap(data, data2) {
     let div = L.DomUtil.create("div", "info legend");
     div.innerHTML += "<div><b>Legend</b></div>";
 
-    div.innerHTML += "<i style='background: #780000'></i> 0 - 10<br>";
-    div.innerHTML += "<i style='background: #dc0000'></i> 10 - 30<br>";
-    div.innerHTML += "<i style='background: #fd8c00'></i> 30 - 50<br>";
-    div.innerHTML += "<i style='background: #fdc500'></i> 50 - 70<br>";
-    div.innerHTML += "<i style='background: #00ac46'></i> 70 - 90<br>";
-    div.innerHTML += "<i style='background: #00f965'></i> 90+";
+    div.innerHTML += "<i style='background: #00f965'></i> -10-10<br>";
+    div.innerHTML += "<i style='background: #00ac46'></i> 10-30<br>";
+    div.innerHTML += "<i style='background: #fdc500'></i> 30-50<br>";
+    div.innerHTML += "<i style='background: #fd8c00'></i> 50-70<br>";
+    div.innerHTML += "<i style='background: #dc0000'></i> 70-90<br>";
+    div.innerHTML += "<i style='background: #780000'></i> 90+<br>";
 
     return div
   }
